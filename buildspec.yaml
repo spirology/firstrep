@@ -14,15 +14,7 @@ phases:
       - echo "Copied index.html to /var/www/html/"
   post_build:
     commands:
-      - echo "Configuring NGINX"
-      - sudo nginx -t
-      - sudo systemctl start nginx
-      - sudo systemctl enable nginx
-      - sudo netstat -tulpn | grep -E '80|443'
-      - nginx -v
-      - echo "NGINX started and enabled at boot"
-      
-
-artifacts:
-  files:
+      - echo "Configuring NGINX" 
+  artifacts:
+    files:
     - /var/www/html/index.html
