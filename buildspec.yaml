@@ -3,18 +3,21 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing NGINX"
+      - echo Installing NGINX
       - sudo apt-get update
       - sudo apt-get install nginx -y
-      - echo "NGINX installation completed"
+
   build:
     commands:
-      - echo Build started on date
+      - echo Build started on `date`
       - cp index.html /var/www/html/
-      - echo "Copied index.html to /var/www/html/"
+
   post_build:
     commands:
-      - echo "Configuring NGINX" 
-  artifacts:
-    files:
+      - echo Configuring NGINX
+      - sudo systemctl start nginx  # If you want to start the service
+      - sudo systemctl enable nginx  # To enable it on boot
+
+artifacts:
+  files:
     - /var/www/html/index.html
