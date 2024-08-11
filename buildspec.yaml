@@ -9,7 +9,7 @@ phases:
       - echo "NGINX installation completed"
   build:
     commands:
-      - echo "Build started on `date`"
+      - echo Build started on date
       - cp index.html /var/www/html/
       - echo "Copied index.html to /var/www/html/"
   post_build:
