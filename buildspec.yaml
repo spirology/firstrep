@@ -15,9 +15,6 @@ phases:
   post_build:
     commands:
       - echo Configuring NGINX
-      - sudo systemctl start nginx  # If you want to start the service
-      - sudo systemctl enable nginx  # To enable it on boot
-
 artifacts:
   files:
-    - /var/www/html/index.html
+    - /var/www/html/index.html  
